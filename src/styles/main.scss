@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
+$primaryColor: #EA1179;
+
+$textColor: #131212;
+$lightTextColor: #f7f1f5;
+
+$p-md: 1rem;
+$p-sm: 0.5rem;
+$p-xs: 0.25rem;
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
