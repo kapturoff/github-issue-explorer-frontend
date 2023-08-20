@@ -1,19 +1,25 @@
 import { List } from 'antd';
 import { PaginationConfig } from 'antd/es/pagination';
-import IssuesApiProvider from '../../api/issues.api';
+import useAxios from 'axios-hooks';
 import IssueItem from '../../components/IssueItem/IssueItem';
 import './HomePage.scss';
+import { IIssue } from '../../types/issues';
 
 function HomePage() {
-  const issuesApiProvider = new IssuesApiProvider();
   const repository = { repositoryName: 'facebook/react' };
 
-  const [data, loading] = issuesApiProvider.list(repository);
+  const [{ data: issues, loading }] = useAxios<IIssue[]>(
+    `/repos/${repository.repositoryName}/issues`,
+  );
 
   const paginationSettings: PaginationConfig = {
     position: 'top',
     align: 'center',
-    pageSize: 10,
+    pageSize: 15,
+    // total: 300,
+    showSizeChanger: false,
+    // onChange(page, pageSize) {
+    // },
   };
 
   return (
@@ -21,7 +27,7 @@ function HomePage() {
       pagination={paginationSettings}
       className="home_page__list"
       loading={loading}
-      dataSource={data}
+      dataSource={issues}
       renderItem={(item) => IssueItem(item, loading)}
     />
   );

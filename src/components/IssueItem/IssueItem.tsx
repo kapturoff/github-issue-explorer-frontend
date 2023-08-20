@@ -5,7 +5,7 @@ import {
   Space,
   Tag,
 } from 'antd';
-import { IIssue } from '../../api/issues.api';
+import { IIssue } from '../../types/issues';
 import calculateColor from '../../utils/calculateColor';
 import './IssueItem.scss';
 
