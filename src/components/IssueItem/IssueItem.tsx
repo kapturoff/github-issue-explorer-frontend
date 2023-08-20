@@ -5,6 +5,7 @@ import {
   Skeleton,
   Space,
   Spin,
+  Typography,
 } from 'antd';
 import { IIssue } from '../../types/issues';
 import LabelsViewer from '../LabelsViewer/LabelsViewer';
@@ -45,9 +46,9 @@ export default function IssueItem(item: IIssue) {
           )}
         />
 
-        <div className="issue__list_item_id">
+        <Typography.Text type="secondary" className="issue__list_item_id">
           {`#${number}`}
-        </div>
+        </Typography.Text>
       </Skeleton>
     </List.Item>
   );

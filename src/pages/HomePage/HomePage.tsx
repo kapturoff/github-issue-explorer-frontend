@@ -3,6 +3,7 @@ import { PaginationConfig } from 'antd/es/pagination';
 import useAxios from 'axios-hooks';
 import { useState } from 'react';
 import IssueItem from '../../components/IssueItem/IssueItem';
+import SearchBar from '../../components/SearchBar/SearchBar';
 import { IIssue } from '../../types/issues';
 import IRepository from '../../types/repositories';
 import './HomePage.scss';
@@ -53,14 +54,16 @@ function HomePage() {
   };
 
   return (
-    <List
-      bordered
-      pagination={paginationSettings}
-      className="home_page__list"
-      loading={issuesLoading}
-      dataSource={issues}
-      renderItem={IssueItem}
-    />
+    <>
+      <SearchBar />
+      <List
+        pagination={paginationSettings}
+        className="home_page__list"
+        loading={issuesLoading}
+        dataSource={issues}
+        renderItem={IssueItem}
+      />
+    </>
   );
 }
 
