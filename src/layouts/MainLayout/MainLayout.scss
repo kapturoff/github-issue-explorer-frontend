@@ -1,0 +1,18 @@
+@import "../../styles/main.scss";
+
+.main_layout__container {
+    background: none;
+}
+
+.main_layout__header {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    color: $lightTextColor;
+}
