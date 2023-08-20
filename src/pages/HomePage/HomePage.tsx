@@ -38,7 +38,7 @@ function HomePage() {
   const paginationSettings: PaginationConfig = {
     className: 'home_page__pagination',
     position: 'top',
-    align: 'start',
+    align: 'center',
 
     pageSize: DEFAULT_PAGE_SIZE,
     total: repositoryLoading

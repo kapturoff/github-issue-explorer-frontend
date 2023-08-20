@@ -28,13 +28,13 @@ function MainLayout() {
       <Layout className="main_layout__container">
 
         <Header className="main_layout__header">
-          <h1>
-            <Space size={16}>
+          <h2 className="main_layout__logotype">
+            <Space align="center">
               <GithubOutlined />
 
-              Github issue tracker
+              <div>Github issue tracker</div>
             </Space>
-          </h1>
+          </h2>
         </Header>
 
         <Content className="main_layout__content">
