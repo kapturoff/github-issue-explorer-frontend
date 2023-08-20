@@ -3,3 +3,11 @@
 .issue__list_item {
     padding: 0 $p-md;
 }
+
+.issue__list_item_id {
+    vertical-align: top;
+}
+
+.issue__list_item_container {
+    align-items: start !important;
+}

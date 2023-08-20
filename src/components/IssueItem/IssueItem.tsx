@@ -1,44 +1,53 @@
 import {
   Avatar,
+  Image,
   List,
   Skeleton,
   Space,
-  Tag,
+  Spin,
 } from 'antd';
 import { IIssue } from '../../types/issues';
-import calculateColor from '../../utils/calculateColor';
+import LabelsViewer from '../LabelsViewer/LabelsViewer';
 import './IssueItem.scss';
 
-export default function IssueItem(item: IIssue, loading: boolean) {
+export default function IssueItem(item: IIssue) {
   const {
-    user, title, labels, number,
+    user,
+    title,
+    labels,
+    number,
+    created_at: createdAt,
   } = item;
 
   return (
-    <List.Item>
-      <Skeleton title={false} loading={loading} active>
+    <List.Item className="issue__list_item_container">
+      <Skeleton title={false} loading={false} active>
         <List.Item.Meta
           className="issue__list_item"
-          avatar={<Avatar src={user.avatar_url} />}
+          avatar={(
+            <Avatar
+              src={(
+                <Image
+                  src={user.avatar_url}
+                  placeholder={<Spin />}
+                  preview={false}
+                />
+              )}
+            />
+          )}
           title={title}
           description={(
-            labels.map(
-              (label) => (
-                <Tag
-                  key={label.id}
-                  color={`#${label.color}`}
-                  style={{ color: calculateColor(label.color) }}
-                >
-                  { label.name }
-                </Tag>
-              ),
-            )
+            <Space direction="vertical">
+              { new Date(createdAt).toLocaleString() }
+
+              <LabelsViewer labels={labels} />
+            </Space>
           )}
         />
 
-        <Space>
-          { `#${number}` }
-        </Space>
+        <div className="issue__list_item_id">
+          {`#${number}`}
+        </div>
       </Skeleton>
     </List.Item>
   );
