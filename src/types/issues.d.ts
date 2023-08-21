@@ -2,6 +2,9 @@ export interface IIssue {
   /** URL of an issue */
   url: string
 
+  /** URL of an issue on Github itself */
+  html_url: string
+
   /**
      * URL to retreive comments of this issue
      *

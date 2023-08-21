@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom/client';
 import { Provider as ReduxProvider } from 'react-redux';
 import {
   createBrowserRouter,
+  createRoutesFromChildren,
+  Route,
   RouterProvider,
 } from 'react-router-dom';
 import store from './store/store';
@@ -12,22 +14,19 @@ import axios from './utils/axios';
 
 import MainLayout from './layouts/MainLayout/MainLayout';
 import HomePage from './pages/HomePage/HomePage';
+import IssueExplorer from './pages/IssueExplorer/IssueExplorer';
 
 // Sets up Axios instance for useAxios() hook
 configure({ axios });
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <MainLayout />,
-    children: [
-      {
-        index: true,
-        element: <HomePage />,
-      },
-    ],
-  },
-]);
+const router = createBrowserRouter(
+  createRoutesFromChildren(
+    <Route path="/" element={<MainLayout />}>
+      <Route index element={<HomePage />} />
+      <Route path="/:owner/:repositoryName/:issueId" element={<IssueExplorer />} />
+    </Route>,
+  ),
+);
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,

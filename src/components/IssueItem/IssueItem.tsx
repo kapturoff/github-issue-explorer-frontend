@@ -14,6 +14,7 @@ import './IssueItem.scss';
 
 export default function IssueItem(item: IIssue) {
   const {
+    url,
     user,
     title,
     labels,
@@ -21,68 +22,44 @@ export default function IssueItem(item: IIssue) {
     created_at: createdAt,
   } = item;
 
+  const repositoryFullName = /(?<=repos\/).+(?=\/issues)/.exec(url)?.[0];
+  const localUrl = `/${repositoryFullName || ''}/${number}`;
+
   return (
-    <List.Item className="issue__list_item_container">
-      <Card className="issue__list_item">
-        <Card.Meta
-          avatar={(
-            <Avatar
-              src={(
-                <Image
-                  src={user.avatar_url}
-                  placeholder={<Spin />}
-                  preview={false}
-                />
+    <Typography.Link href={localUrl}>
+      <List.Item className="issue__list_item_container">
+        <Card className="issue__list_item">
+          <Card.Meta
+            avatar={(
+              <Avatar
+                src={(
+                  <Image
+                    src={user.avatar_url}
+                    placeholder={<Spin />}
+                    preview={false}
+                  />
               )}
-            />
+              />
           )}
-          title={(
-            <Space>
-              <div>{title}</div>
+            title={(
+              <Space>
+                <div>{title}</div>
 
-              <Typography.Text type="secondary" className="issue__list_item_id">
-                {`#${number}`}
-              </Typography.Text>
-            </Space>
+                <Typography.Text type="secondary" className="issue__list_item_id">
+                  {`#${number}`}
+                </Typography.Text>
+              </Space>
           )}
-          description={(
-            <Space direction="vertical">
-              { new Date(createdAt).toLocaleString() }
+            description={(
+              <Space direction="vertical">
+                { new Date(createdAt).toLocaleString() }
 
-              <LabelsViewer labels={labels} />
-            </Space>
+                <LabelsViewer labels={labels} />
+              </Space>
           )}
-        />
-      </Card>
-
-      {/* <Skeleton title={false} loading={false} active>
-        <List.Item.Meta
-          className="issue__list_item"
-          avatar={(
-            <Avatar
-              src={(
-                <Image
-                  src={user.avatar_url}
-                  placeholder={<Spin />}
-                  preview={false}
-                />
-              )}
-            />
-          )}
-          title={title}
-          description={(
-            <Space direction="vertical">
-              { new Date(createdAt).toLocaleString() }
-
-              <LabelsViewer labels={labels} />
-            </Space>
-          )}
-        />
-
-        <Typography.Text type="secondary" className="issue__list_item_id">
-          {`#${number}`}
-        </Typography.Text>
-      </Skeleton> */}
-    </List.Item>
+          />
+        </Card>
+      </List.Item>
+    </Typography.Link>
   );
 }

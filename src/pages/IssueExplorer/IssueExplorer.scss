@@ -1,0 +1,45 @@
+@import "../../styles/main.scss";
+
+.back_button {
+    margin-left: $p-md;
+    margin-bottom: $p-xs;
+}
+
+.issue {
+    background: none;
+
+    .issue__header {
+        padding-bottom: $p-md;
+    }
+
+    .issue__title {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .issue__content {
+        padding: 0 $p-sm;
+    }
+
+    pre {
+        border-radius: $p-xs;
+        border: 1px solid $primaryBorderColor;
+    }
+
+    pre,
+    pre>code {
+        width: 100%;
+        overflow-x: auto;
+        padding: $p-md;
+        // overflow-wrap: normal;
+        color: rgb(66, 66, 66);
+        // word-wrap: break-word;
+        // text-wrap: nowrap;
+        // white-space: nowrap;
+    }
+
+    code {
+        color: $primaryColor;
+    }
+}
