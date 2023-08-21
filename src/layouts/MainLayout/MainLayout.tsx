@@ -5,7 +5,7 @@ import {
   ThemeConfig,
   message,
 } from 'antd';
-import { Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import './MainLayout.scss';
 
 const { Header, Content } = Layout;
@@ -29,11 +29,13 @@ function MainLayout() {
 
         <Header className="main_layout__header">
           <h2 className="main_layout__logotype">
-            <Space align="center">
-              <GithubOutlined />
+            <Link to="/">
+              <Space align="center">
+                <GithubOutlined />
 
-              <div>Github issue tracker</div>
-            </Space>
+                <div>Github issue tracker</div>
+              </Space>
+            </Link>
           </h2>
         </Header>
 
