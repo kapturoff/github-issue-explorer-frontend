@@ -1,28 +1,29 @@
 @import "../../styles/main.scss";
 
 .main_layout__container {
-    background: none;
-}
-
-a {
-    color: inherit !important;
+    background: white;
+    min-height: 100vh;
 }
 
 .main_layout__header {
     position: sticky;
     top: 0;
     z-index: 1;
-
+    
     width: 100%;
-
+    
     display: flex;
     align-items: center;
-
-    // color: $lightTextColor;
+    
     background-color: inherit;
+    color: $primaryColor;
 }
 
 .main_layout__logotype {
+    a {
+        color: inherit !important;
+    }
+
     width: 100%;
     text-align: center;
 }
