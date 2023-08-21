@@ -11,7 +11,7 @@ import { IIssue } from '../../types/issues';
 import IRepository from '../../types/repositories';
 import './HomePage.scss';
 
-const DEFAULT_PAGE_SIZE = 15;
+const DEFAULT_PAGE_SIZE = 30;
 
 function HomePage() {
   const dispatch = useDispatch();
