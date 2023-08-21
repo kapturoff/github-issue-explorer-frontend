@@ -63,48 +63,51 @@ export default function SearchBar() {
       initialValues={formInitialValues}
       layout="inline"
     >
-      <Form.Item
-        validateStatus={repositoriesRequestFailed ? 'error' : undefined}
-        help={repositoriesRequestFailed && "Owner's not found"}
-        name="owner"
-        rules={[{ required: true }]}
-      >
-        <Input
-          onChange={debounce(onOwnerInputChanged, 750)}
-          placeholder="Owner of the repository"
-        />
-      </Form.Item>
+      <div className="search_bar__inputs">
+        <Form.Item
+          validateStatus={repositoriesRequestFailed ? 'error' : undefined}
+          help={repositoriesRequestFailed && "Owner's not found"}
+          name="owner"
+          rules={[{ required: true }]}
+        >
+          <Input
+            onChange={debounce(onOwnerInputChanged, 750)}
+            placeholder="Owner of the repository"
+          />
+        </Form.Item>
 
-      <Form.Item>
-        /
-      </Form.Item>
+        <Form.Item>
+          /
+        </Form.Item>
 
-      <Form.Item
-        name="name"
-        rules={[{ required: true }]}
-        validateStatus={repositoriesRequestFailed ? 'error' : ''}
-        help={repositoriesRequestFailed && 'Owner has no repositories'}
-      >
-        <Select
-          allowClear
-          className="search_bar__repo_select"
-          options={
+        <Form.Item
+          name="name"
+          rules={[{ required: true }]}
+          validateStatus={repositoriesRequestFailed ? 'error' : ''}
+          help={repositoriesRequestFailed && 'Owner has no repositories'}
+        >
+          <Select
+            allowClear
+            className="search_bar__repo_select"
+            options={
             repositoriesRequestFailed || !repositories?.length
               ? []
               : repositories
           }
-          fieldNames={{
-            label: 'name',
-            value: 'name',
-          }}
-          placeholder="Choose repository"
-          loading={repositoriesLoading}
-          showSearch
-        />
-      </Form.Item>
+            fieldNames={{
+              label: 'name',
+              value: 'name',
+            }}
+            placeholder="Choose repository"
+            loading={repositoriesLoading}
+            showSearch
+          />
+        </Form.Item>
+      </div>
 
       <Form.Item>
         <Button
+          className="search_bar__submit_button"
           type="primary"
           loading={formLoading}
           htmlType="submit"

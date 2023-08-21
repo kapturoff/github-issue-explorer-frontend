@@ -1,10 +1,21 @@
 @import "../../styles/main.scss";
 
 .search_bar__container {
+    flex-grow: auto;
     width: 100%;
     justify-content: center;
 }
 
 .search_bar__repo_select {
     min-width: 10em;
+}
+
+.search_bar__inputs {
+    display: flex;
+}
+
+@media screen and (max-width: 700px) {
+    .search_bar__container {
+        gap: 10px;
+    }
 }
