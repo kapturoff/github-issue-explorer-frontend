@@ -1,7 +1,14 @@
 @import "../../styles/main.scss";
 
+.issue__list_item_container {
+    border: 0 !important;
+}
+
 .issue__list_item {
-    padding: 0 $p-md;
+    border: 1px solid $primaryBorderColor;
+    width: 100%;
+    min-height: 100%;
+    box-shadow: $shadow-0;
 }
 
 .issue__list_item_id {

@@ -96,10 +96,10 @@ function HomePage() {
     <>
       <SearchBar />
       <List
-        pagination={paginationSettings}
-        className="home_page__list"
-        loading={issuesLoading}
         dataSource={issues}
+        className="home_page__list"
+        pagination={paginationSettings}
+        loading={issuesLoading}
         renderItem={IssueItem}
       />
     </>

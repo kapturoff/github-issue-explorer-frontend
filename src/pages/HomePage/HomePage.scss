@@ -1,5 +1,9 @@
 @import "../../styles/main.scss";
 
-.home_page__container {
-    padding: $p-md;
+.home_page__pagination {
+    margin-bottom: $p-md;
+}
+
+.home_page__list {
+    padding: 0 $p-md;
 }
