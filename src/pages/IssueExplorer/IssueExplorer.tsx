@@ -48,7 +48,7 @@ export default function IssueExplorer() {
           className="back_button"
         >
           <LeftOutlined />
-          Go back
+          Go home
         </Button>
 
         <Button

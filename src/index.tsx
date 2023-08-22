@@ -15,13 +15,18 @@ import axios from './utils/axios';
 import MainLayout from './layouts/MainLayout/MainLayout';
 import HomePage from './pages/HomePage/HomePage';
 import IssueExplorer from './pages/IssueExplorer/IssueExplorer';
+import ErrorPage from './pages/ErrorPage/ErrorPage';
 
 // Sets up Axios instance for useAxios() hook
 configure({ axios });
 
 const router = createBrowserRouter(
   createRoutesFromChildren(
-    <Route path="/" element={<MainLayout />}>
+    <Route
+      path="/"
+      element={<MainLayout />}
+      errorElement={<ErrorPage />}
+    >
       <Route index element={<HomePage />} />
       <Route path="/:owner/:repositoryName/:issueId" element={<IssueExplorer />} />
     </Route>,
