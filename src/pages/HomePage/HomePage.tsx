@@ -1,4 +1,5 @@
-import { List } from 'antd';
+import { CopyOutlined } from '@ant-design/icons';
+import { FloatButton, List } from 'antd';
 import { PaginationConfig } from 'antd/es/pagination';
 import useAxios from 'axios-hooks';
 import { useEffect, useState } from 'react';
@@ -101,6 +102,13 @@ function HomePage() {
         pagination={paginationSettings}
         loading={issuesLoading}
         renderItem={IssueItem}
+      />
+      <FloatButton
+        icon={<CopyOutlined />}
+        description="Logs"
+        shape="square"
+        type="primary"
+        href="/logs"
       />
     </>
   );

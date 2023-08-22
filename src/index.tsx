@@ -16,6 +16,7 @@ import MainLayout from './layouts/MainLayout/MainLayout';
 import HomePage from './pages/HomePage/HomePage';
 import IssueExplorer from './pages/IssueExplorer/IssueExplorer';
 import ErrorPage from './pages/ErrorPage/ErrorPage';
+import Stats from './pages/Stats/Stats';
 
 // Sets up Axios instance for useAxios() hook
 configure({ axios });
@@ -29,6 +30,7 @@ const router = createBrowserRouter(
     >
       <Route index element={<HomePage />} />
       <Route path="/:owner/:repositoryName/:issueId" element={<IssueExplorer />} />
+      <Route path="/logs" element={<Stats />} />
     </Route>,
   ),
 );
