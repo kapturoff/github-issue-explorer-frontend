@@ -17,6 +17,7 @@ import { updateRepository } from '../../store/repositorySlice';
 export default function SearchBar() {
   const dispatch = useDispatch<AppDispatch>();
 
+  const [form] = Form.useForm<typeof formInitialValues>();
   const formLoading = useSelector<RootState>(
     (state) => state.repository.loading,
   ) as boolean;
@@ -52,12 +53,14 @@ export default function SearchBar() {
 
   useEffect(() => {
     if (owner) {
+      form.resetFields(['name']);
       loadRepositoriesList().catch(() => null);
     }
   }, [owner]);
 
   return (
     <Form
+      form={form}
       className="search_bar__container"
       onFinish={onSubmit}
       initialValues={formInitialValues}
@@ -90,10 +93,10 @@ export default function SearchBar() {
             allowClear
             className="search_bar__repo_select"
             options={
-            repositoriesRequestFailed || !repositories?.length
-              ? []
-              : repositories
-          }
+              repositoriesRequestFailed || !repositories?.length
+                ? []
+                : repositories
+            }
             fieldNames={{
               label: 'name',
               value: 'name',
