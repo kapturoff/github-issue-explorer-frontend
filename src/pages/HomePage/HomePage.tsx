@@ -35,7 +35,7 @@ function HomePage() {
     loadIssues,
   ] = useAxios<IIssue[]>(
     {
-      url: `/repos/${repositoryFullName}/issues`,
+      url: `/issues/${repositoryFullName}`,
       params: {
         page,
         per_page: DEFAULT_PAGE_SIZE,
@@ -55,7 +55,7 @@ function HomePage() {
     { data: repository },
     loadRepository,
   ] = useAxios<IRepository>(
-    `/repos/${repositoryFullName}`,
+    `/repositories/${repositoryFullName}`,
     { manual: true },
   );
 

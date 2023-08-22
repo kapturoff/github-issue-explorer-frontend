@@ -36,7 +36,7 @@ export default function IssueExplorer() {
       loading: issueLoading,
     },
   ] = useAxios<IIssue>(
-    `/repos/${owner}/${repositoryName}/issues/${issueId}`,
+    `/issues/${owner}/${repositoryName}/${issueId}`,
   );
 
   return (

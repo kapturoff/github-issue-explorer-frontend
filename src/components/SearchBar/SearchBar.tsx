@@ -46,7 +46,7 @@ export default function SearchBar() {
     },
     loadRepositoriesList,
   ] = useAxios<IRepository[]>(
-    `/orgs/${owner}/repos`,
+    `/repositories/${owner}`,
     { manual: true },
   );
 
